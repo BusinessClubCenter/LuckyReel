@@ -1,0 +1,270 @@
+@font-face {
+  font-family: 'NightVibes';
+  src: url('fonts/night-vibes-free-version.regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --picton-blue: #48e8f2;
+  --lucky-point: #281562;
+  --heliotrope: #e54ef1;
+  --fun-blue: #184fa1;
+  --cinder: #050406;
+  --violet: #1d0638;
+  --bunting: #121c44;
+  --anakiwa: #84fcfc;
+  --clairvoyant: #3c0444;
+  --melanzane: #240424;
+
+  --text-color: var(--anakiwa);
+  --border-color: var(--heliotrope);
+  --bg-color: var(--cinder);
+}
+
+* {
+  box-sizing: border-box;
+}
+ 
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: top; /* ← вот эта строка сохраняет верхнюю часть */
+  z-index: -1;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+  
+  
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  height: 100vh;
+  font-family: 'NightVibes', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  padding-top: 160px; /* ← сдвиг всей области вниз */
+}
+
+.reel-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  flex-wrap: wrap;
+}
+
+.reel-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.reel-container {
+  width: 240px;
+  height: 540px; /* 3 карточки по 120 + 3 отступа по 20 */
+  overflow: hidden;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  mask-image: linear-gradient(to bottom, 
+    transparent 0%, 
+    black 15%, 
+    black 85%, 
+    transparent 100%);
+  mask-mode: match-source;
+
+  -webkit-mask-image: linear-gradient(to bottom, 
+    transparent 0%, 
+    black 15%, 
+    black 85%, 
+    transparent 100%);
+  -webkit-mask-mode: match-source;
+}
+
+.reel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  background-color: transparent;
+}
+
+.card {
+  width: 200px;
+  height: 160px;
+  background: radial-gradient(
+    circle at 30% 40%,
+    var(--lucky-point) 0%,
+    var(--bunting) 40%,
+    var(--fun-blue) 100%
+  );
+  margin: 15px 0;
+  transition: transform 0.3s ease;
+  border: 3px solid var(--border-color);
+  border-radius: 20px;
+  font-family: 'NightVibes', sans-serif;
+  font-size: 55px;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 1;
+  text-shadow:
+    0 0 4px var(--picton-blue),
+    0 0 8px var(--picton-blue),
+    0 0 16px var(--heliotrope),
+    0 0 32px var(--heliotrope);
+  box-shadow:
+  0 0 4px var(--border-color),
+  0 0 8px var(--border-color),
+  0 0 16px var(--fun-blue),
+    inset 0 0 10px var(--border-color),
+    inset 0 0 20px var(--border-color);
+}
+
+.card.highlight {
+  transform: scale(1.5);
+  z-index: 10;
+}
+
+.arrow {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50px);
+}
+
+.arrow svg path {
+  stroke: var(--heliotrope);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 10px var(--heliotrope));
+}
+
+.start-btn {
+  padding: 4px 20px;                  /* меньше высота и ширина */
+  font-size: 36px;                    /* был 50px */
+  background: var(--bunting);
+  border: 2px solid var(--picton-blue);  /* границу тоже можно чуть уменьшить */
+  border-radius: 40px;
+  color: var(--picton-blue);
+  font-family: 'Great Vibes', cursive;
+  letter-spacing: 2px;
+  text-shadow: 0 0 6px var(--picton-blue);
+  box-shadow:
+    0 0 10px var(--picton-blue),
+    inset 0 0 6px var(--picton-blue);
+  cursor: pointer;
+  margin-top: -30px;
+  margin-bottom: 8px;
+}
+
+
+/* --- Адаптация --- */
+
+/* Смартфоны */
+@media (max-width: 480px) {
+  .card {
+    width: 60px;
+    height: 90px;
+    font-size: 48px;
+  }
+
+  .reel-container {
+    width: 140px;
+    height: 330px;
+  }
+
+  .start-btn {
+    font-size: 16px;
+    padding: 8px 30px;
+  }
+}
+
+/* Планшеты */
+@media (min-width: 481px) and (max-width: 768px) {
+  .card {
+    width: 70px;
+    height: 105px;
+    font-size: 56px;
+  }
+
+  .reel-container {
+    width: 160px;
+    height: 375px;
+  }
+
+  .start-btn {
+    font-size: 18px;
+    padding: 10px 35px;
+  }
+}
+
+/* Ноутбуки и десктопы */
+@media (min-width: 769px) and (max-width: 1399px) {
+  .card {
+    width: 80px;
+    height: 120px;
+    font-size: 64px;
+  }
+
+  .reel-container {
+    width: 180px;
+    height: 420px;
+  }
+
+  .start-btn {
+    font-size: 20px;
+    padding: 10px 40px;
+  }
+}
+
+/* Очень большие экраны (4K и выше) */
+@media (min-width: 1400px) {
+  .card {
+    width: 100px;
+    height: 150px;
+    font-size: 80px;
+  }
+
+  .reel-container {
+    width: 220px;
+    height: 510px;
+  }
+
+  .start-btn {
+    font-size: 26px;
+    padding: 12px 50px;
+  }
+}

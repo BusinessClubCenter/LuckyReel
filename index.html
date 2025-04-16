@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Неоновая карточка</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="video/bg.mp4" type="video/mp4" />
+    <track src="video/subtitles.vtt" kind="subtitles" srclang="en" label="English" default>
+    <!-- fallback текст на случай если видео не загружается -->
+    Ваш браузер не поддерживает видео фон.
+  </video>
+  <div class="container">
+    <div class="reel-wrapper">
+      <div class="arrow left-arrow">
+        <svg viewBox="0 0 100 100" width="40" height="40">
+          <path d="M30 10 L70 50 L30 90" fill="none" />
+        </svg>
+      </div>
+
+      <div class="reel-area">
+        <div class="reel-container">
+          <div class="reel"></div>
+        </div>
+        <button class="start-btn">START</button>
+      </div>
+
+      <div class="arrow right-arrow">
+        <svg viewBox="0 0 100 100" width="40" height="40">
+          <path d="M70 10 L30 50 L70 90" fill="none" />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
