@@ -179,7 +179,7 @@ body {
   border: 2px solid var(--picton-blue);  /* границу тоже можно чуть уменьшить */
   border-radius: 40px;
   color: var(--picton-blue);
-  font-family: 'Great Vibes', cursive;
+  font-family: 'NightVibes', sans-serif;
   letter-spacing: 2px;
   text-shadow: 0 0 6px var(--picton-blue);
   box-shadow:
@@ -189,6 +189,20 @@ body {
   margin-top: -30px;
   margin-bottom: 8px;
 }
+/* Улучшения для мобильных устройств */
+html, body {
+  touch-action: manipulation;
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 
 
 /* --- Адаптация --- */
@@ -268,3 +282,4 @@ body {
     padding: 12px 50px;
   }
 }
+

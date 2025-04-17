@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const bgVideo = document.getElementById('bg-video');
   const reel = document.querySelector('.reel');
   const reelContainer = document.querySelector('.reel-container');
   const startButton = document.querySelector('.start-btn');
+
+  // Остановить видеофон при загрузке
+  bgVideo.pause();
 
   const totalNumbers = 1500;
   const loopCount = 3;
@@ -90,6 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
   startButton.addEventListener('click', () => {
     if (spinning) return;
     spinning = true;
+
+    // Запускаем видео при клике на Старт
+    if (bgVideo.paused) {
+      bgVideo.play();
+    }
 
     const target = Math.floor(Math.random() * totalNumbers);
     spinTo(target);
