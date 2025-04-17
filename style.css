@@ -191,14 +191,27 @@ body {
 }
 
 
-/* --- Адаптация --- */
-
-/* Смартфоны */
+/* --- 📱 Очень маленькие экраны (iPhone SE, 6s и т.п.) --- */
 @media (max-width: 375px) {
-  .card {
-    width: 55px;
-    height: 80px;
-    font-size: 42px;
+  .container {
+    padding-top: 10px;
+    align-items: flex-start;
+    height: 100vh;
+  }
+
+  .reel-wrapper {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: -10px;
+  }
+
+  .arrow {
+    width: 50px;
+    transform: none;
+  }
+
+  .arrow svg {
+    transform: rotate(90deg);
   }
 
   .reel-container {
@@ -206,18 +219,38 @@ body {
     height: 300px;
   }
 
+  .card {
+    width: 55px;
+    height: 80px;
+    font-size: 42px;
+  }
+
   .start-btn {
     font-size: 14px;
-    padding: 6px 25px;
+    padding: 6px 20px;
     margin-top: -20px;
   }
 }
 
-@media (max-width: 480px) {
-  .card {
+/* --- 📱 Стандартные смартфоны (до 480px) --- */
+@media (min-width: 376px) and (max-width: 480px) {
+  .container {
+    padding-top: 15px;
+    align-items: flex-start;
+  }
+
+  .reel-wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .arrow {
     width: 60px;
-    height: 90px;
-    font-size: 48px;
+    transform: none;
+  }
+
+  .arrow svg {
+    transform: rotate(90deg);
   }
 
   .reel-container {
@@ -225,23 +258,49 @@ body {
     height: 330px;
   }
 
+  .card {
+    width: 60px;
+    height: 90px;
+    font-size: 48px;
+  }
+
   .start-btn {
     font-size: 16px;
-    padding: 8px 30px;
+    padding: 8px 28px;
+    margin-top: -15px;
   }
 }
 
-/* Планшеты */
+/* --- 📱 Планшеты (до 768px) --- */
 @media (min-width: 481px) and (max-width: 768px) {
-  .card {
+  .container {
+    padding-top: 30px;
+    align-items: center;
+  }
+
+  .reel-wrapper {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .arrow {
     width: 70px;
-    height: 105px;
-    font-size: 56px;
+    transform: none;
+  }
+
+  .arrow svg {
+    transform: rotate(90deg);
   }
 
   .reel-container {
     width: 160px;
     height: 375px;
+  }
+
+  .card {
+    width: 70px;
+    height: 105px;
+    font-size: 56px;
   }
 
   .start-btn {
@@ -250,17 +309,32 @@ body {
   }
 }
 
-/* Ноутбуки и десктопы */
+/* --- 💻 Ноутбуки и десктопы (до 1399px) --- */
 @media (min-width: 769px) and (max-width: 1399px) {
-  .card {
+  .container {
+    padding-top: 50px;
+    align-items: center;
+  }
+
+  .reel-wrapper {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .arrow {
     width: 80px;
-    height: 120px;
-    font-size: 64px;
+    transform: translateY(-50px);
   }
 
   .reel-container {
     width: 180px;
     height: 420px;
+  }
+
+  .card {
+    width: 80px;
+    height: 120px;
+    font-size: 64px;
   }
 
   .start-btn {
@@ -269,17 +343,32 @@ body {
   }
 }
 
-/* Очень большие экраны (4K и выше) */
+/* --- 🖥 Очень большие экраны (4K и выше) --- */
 @media (min-width: 1400px) {
-  .card {
-    width: 100px;
-    height: 150px;
-    font-size: 80px;
+  .container {
+    padding-top: 60px;
+    align-items: center;
+  }
+
+  .reel-wrapper {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .arrow {
+    width: 90px;
+    transform: translateY(-60px);
   }
 
   .reel-container {
     width: 220px;
     height: 510px;
+  }
+
+  .card {
+    width: 100px;
+    height: 150px;
+    font-size: 80px;
   }
 
   .start-btn {
