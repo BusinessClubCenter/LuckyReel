@@ -61,7 +61,7 @@ body {
   height: 100%;
   width: 100%;
   padding: 20px;
-  padding-top: 160px; /* ← сдвиг всей области вниз */
+  padding-top: 100px; /* ← сдвиг всей области вниз */
 }
 
 .reel-wrapper {
@@ -186,7 +186,7 @@ body {
     0 0 10px var(--picton-blue),
     inset 0 0 6px var(--picton-blue);
   cursor: pointer;
-  margin-top: -30px;
+  margin-top: 0px;
   margin-bottom: 8px;
 }
 /* Улучшения для мобильных устройств */
@@ -208,6 +208,7 @@ html {
 /* --- Адаптация --- */
 
 /* Смартфоны */
+
 @media (max-width: 480px) {
   .card {
     width: 60px;

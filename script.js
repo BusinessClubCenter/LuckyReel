@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIndex = index % totalNumbers;
         reelContainer.scrollTop = (currentIndex + totalNumbers) * wrapperHeight;
         spinning = false;
-
+      
         // Подсветка центральной карточки
         const wrappers = document.querySelectorAll('.card-wrapper');
         const centerIndex = currentIndex + totalNumbers * 1 + centerOffset;
@@ -85,7 +85,11 @@ document.addEventListener('DOMContentLoaded', () => {
             card.classList.add('highlight');
           }
         }
+      
+        // ⏸️ Останавливаем видео после подсветки
+        bgVideo.pause();
       }
+      
     }
 
     requestAnimationFrame(animate);
