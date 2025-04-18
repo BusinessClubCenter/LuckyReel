@@ -25,33 +25,19 @@
 * {
   box-sizing: border-box;
 }
- 
-#bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  object-position: top; /* ← вот эта строка сохраняет верхнюю часть */
-  z-index: -1;
-  opacity: 1;
-  pointer-events: none;
-}
-
-  
-  
 
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--bg-color);
   height: 100vh;
   font-family: 'NightVibes', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background-image: url('fon.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .container {
@@ -61,7 +47,7 @@ body {
   height: 100%;
   width: 100%;
   padding: 20px;
-  padding-top: 100px; /* ← сдвиг всей области вниз */
+  padding-top: 100px;
 }
 
 .reel-wrapper {
@@ -81,25 +67,17 @@ body {
 
 .reel-container {
   width: 240px;
-  height: 540px; /* 3 карточки по 120 + 3 отступа по 20 */
+  height: 540px;
   overflow: hidden;
   background-color: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  mask-image: linear-gradient(to bottom, 
-    transparent 0%, 
-    black 15%, 
-    black 85%, 
-    transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
   mask-mode: match-source;
 
-  -webkit-mask-image: linear-gradient(to bottom, 
-    transparent 0%, 
-    black 15%, 
-    black 85%, 
-    transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
   -webkit-mask-mode: match-source;
 }
 
@@ -112,19 +90,14 @@ body {
 .card-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   background-color: transparent;
 }
 
 .card {
   width: 200px;
   height: 160px;
-  background: radial-gradient(
-    circle at 30% 40%,
-    var(--lucky-point) 0%,
-    var(--bunting) 40%,
-    var(--fun-blue) 100%
-  );
+  background: radial-gradient(circle at 30% 40%, var(--lucky-point) 0%, var(--bunting) 40%, var(--fun-blue) 100%);
   margin: 15px 0;
   transition: transform 0.3s ease;
   border: 3px solid var(--border-color);
@@ -138,17 +111,8 @@ body {
   text-align: center;
   letter-spacing: 2px;
   line-height: 1;
-  text-shadow:
-    0 0 4px var(--picton-blue),
-    0 0 8px var(--picton-blue),
-    0 0 16px var(--heliotrope),
-    0 0 32px var(--heliotrope);
-  box-shadow:
-  0 0 4px var(--border-color),
-  0 0 8px var(--border-color),
-  0 0 16px var(--fun-blue),
-    inset 0 0 10px var(--border-color),
-    inset 0 0 20px var(--border-color);
+  text-shadow: 0 0 4px var(--picton-blue), 0 0 8px var(--picton-blue), 0 0 16px var(--heliotrope), 0 0 32px var(--heliotrope);
+  box-shadow: 0 0 4px var(--border-color), 0 0 8px var(--border-color), 0 0 16px var(--fun-blue), inset 0 0 10px var(--border-color), inset 0 0 20px var(--border-color);
 }
 
 .card.highlight {
@@ -173,23 +137,21 @@ body {
 }
 
 .start-btn {
-  padding: 4px 20px;                  /* меньше высота и ширина */
-  font-size: 36px;                    /* был 50px */
+  padding: 4px 20px;
+  font-size: 36px;
   background: var(--bunting);
-  border: 2px solid var(--picton-blue);  /* границу тоже можно чуть уменьшить */
+  border: 2px solid var(--picton-blue);
   border-radius: 40px;
   color: var(--picton-blue);
   font-family: 'NightVibes', sans-serif;
   letter-spacing: 2px;
   text-shadow: 0 0 6px var(--picton-blue);
-  box-shadow:
-    0 0 10px var(--picton-blue),
-    inset 0 0 6px var(--picton-blue);
+  box-shadow: 0 0 10px var(--picton-blue), inset 0 0 6px var(--picton-blue);
   cursor: pointer;
   margin-top: 0px;
   margin-bottom: 8px;
 }
-/* Улучшения для мобильных устройств */
+
 html, body {
   touch-action: manipulation;
 }
@@ -203,12 +165,7 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-
-
 /* --- Адаптация --- */
-
-/* Смартфоны */
-
 @media (max-width: 480px) {
   .card {
     width: 60px;
@@ -227,7 +184,6 @@ html {
   }
 }
 
-/* Планшеты */
 @media (min-width: 481px) and (max-width: 768px) {
   .card {
     width: 70px;
@@ -246,7 +202,6 @@ html {
   }
 }
 
-/* Ноутбуки и десктопы */
 @media (min-width: 769px) and (max-width: 1399px) {
   .card {
     width: 80px;
@@ -265,7 +220,6 @@ html {
   }
 }
 
-/* Очень большие экраны (4K и выше) */
 @media (min-width: 1400px) {
   .card {
     width: 100px;
@@ -283,4 +237,3 @@ html {
     padding: 12px 50px;
   }
 }
-

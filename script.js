@@ -1,11 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const bgVideo = document.getElementById('bg-video');
   const reel = document.querySelector('.reel');
   const reelContainer = document.querySelector('.reel-container');
   const startButton = document.querySelector('.start-btn');
-
-  // Остановить видеофон при загрузке
-  bgVideo.pause();
 
   const totalNumbers = 1500;
   const loopCount = 3;
@@ -58,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const duration = 7000;
     const startTime = performance.now();
 
-    // Удалить все .highlight перед стартом
     const allCards = document.querySelectorAll('.card');
     allCards.forEach(card => card.classList.remove('highlight'));
 
@@ -74,8 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIndex = index % totalNumbers;
         reelContainer.scrollTop = (currentIndex + totalNumbers) * wrapperHeight;
         spinning = false;
-      
-        // Подсветка центральной карточки
+
         const wrappers = document.querySelectorAll('.card-wrapper');
         const centerIndex = currentIndex + totalNumbers * 1 + centerOffset;
         const centerWrapper = wrappers[centerIndex];
@@ -85,11 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.classList.add('highlight');
           }
         }
-      
-        // ⏸️ Останавливаем видео после подсветки
-        bgVideo.pause();
       }
-      
     }
 
     requestAnimationFrame(animate);
@@ -98,11 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
   startButton.addEventListener('click', () => {
     if (spinning) return;
     spinning = true;
-
-    // Запускаем видео при клике на Старт
-    if (bgVideo.paused) {
-      bgVideo.play();
-    }
 
     const target = Math.floor(Math.random() * totalNumbers);
     spinTo(target);
