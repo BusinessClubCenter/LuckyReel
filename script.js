@@ -93,3 +93,20 @@ document.addEventListener('DOMContentLoaded', () => {
     spinTo(target);
   });
 });
+function updateBackgroundImage() {
+  const bgImg = document.querySelector('.bg-img');
+  if (!bgImg) return;
+
+  if (window.innerHeight > window.innerWidth) {
+    bgImg.src = 'fon-vertical.webp';
+  } else {
+    bgImg.src = 'fon-horizontal.webp';
+  }
+}
+
+// Срабатывает при изменении размера окна
+window.addEventListener('resize', updateBackgroundImage);
+
+// Срабатывает при первой загрузке страницы
+updateBackgroundImage();
+

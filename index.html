@@ -7,7 +7,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <img class="bg-img" src="fon.jpg" alt="фон" />
+  <picture>
+    <source srcset="fon-vertical.webp" media="(orientation: portrait)" type="image/webp">
+    <source srcset="fon-horizontal.webp" media="(orientation: landscape)" type="image/webp">
+    <img class="bg-img" src="fon-horizontal.webp" alt="фон" loading="lazy" />
+  </picture>
+  
   <div class="container">
     <div class="reel-wrapper">
       <div class="arrow left-arrow">
